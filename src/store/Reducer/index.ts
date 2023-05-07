@@ -6,6 +6,7 @@ interface ILogInReducer {
     loading: boolean
     error: string
     value: Partial<any>
+    mode: boolean
 }
 
 const initialState: ILogInReducer = {
@@ -15,7 +16,8 @@ const initialState: ILogInReducer = {
     value: {
         email: "",
         password: "",
-    }
+    },
+    mode: false
 }
 
 export const LoginReducerSlice = createSlice({
@@ -36,9 +38,12 @@ export const LoginReducerSlice = createSlice({
         },
         getValue(state,action: PayloadAction<Partial<any>>) {
             state.value = action.payload
+        },
+        getMode(state,action) {
+            state.mode = action.payload
         }
     }
 })
 
-export const {getLogin,getLoginSuccess,getLoginError, getValue} = LoginReducerSlice.actions
+export const {getMode,getLogin,getLoginSuccess,getLoginError, getValue} = LoginReducerSlice.actions
 export default LoginReducerSlice.reducer

