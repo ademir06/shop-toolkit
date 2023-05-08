@@ -33,9 +33,8 @@ const Main = () => {
                             </div>
                             <div className="px-5 pb-5">
                                 <h5 className="text-xl font-semibold my-6 tracking-tight w-[200px] text-gray-900 dark:text-white">{el.title}</h5>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900 dark:text-white">{el.price}</span>
-                                    <button  onClick={()=> dispatch(addToFavorite(el))} className="text-2xl pl-20"><MdOutlineFavoriteBorder
+                                <div className="flex items-center justify-between w-[200px]">
+                                    <button  onClick={()=> dispatch(addToFavorite(el))} className="text-2xl"><MdOutlineFavoriteBorder
                                         className='text-red-800'/></button>
                                     {
                                         found(el) ?
