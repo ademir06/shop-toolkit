@@ -31,7 +31,7 @@ const Header = () => {
                         <div hidden={login.status}>
                             <Link to={'/'} className="text-lg text-2xl text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
                         </div>
-                        <a href="#" className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline px-20"><BsBasketFill/></a>
+                        <button onClick={() => navigate("/basket")} className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline px-20"><BsBasketFill/></button>
                         <Link to={'/favorite'} className=" text-2xl text-blue-600 dark:text-blue-500 hover:underline"><MdFavoriteBorder/> </Link>
                         <h1 className="absolute right-24 -top-4">{basLen === 0 ? "" : basLen}</h1>
                     </div>
