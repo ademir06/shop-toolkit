@@ -1,23 +1,18 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch} from "../../../Hooks/useAppDispatch";
 import {useAppSelector} from "../../../Hooks/useAppSelector";
-import {setCard} from "../../../store/Reducer/ActionCreators";
-import {MdOutlineFavoriteBorder} from "react-icons/md";
 import {addToFavorite} from "../../../store/Reducer/ActionCreators/FavoriteCreators";
+import {MdOutlineFavoriteBorder} from "react-icons/md";
 
-const Main = () => {
+const Favorite = () => {
     const dispatch = useAppDispatch()
-    const {card} = useAppSelector(state => state.CardReducerSlice)
-    console.log(card)
-    useEffect(() => {
-        dispatch(setCard())
-    }, [])
-    return (
-        <div className='container'>
-            <div className='flex flex-wrap  items-center justify-between basis-3/3 pt-28'>
-                {
-                    card.map(el => (
+    const {favorite} = useAppSelector(state => state.FavoriteReducer)
 
+    return (
+        <div>
+            <div className="contain">
+                {
+                    favorite.map(el => (
                         <div
                             className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <div className='w-[400px] h-[400px] '>
@@ -38,7 +33,6 @@ const Main = () => {
                                 </div>
                             </div>
                         </div>
-
                     ))
                 }
             </div>
@@ -46,4 +40,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default Favorite;

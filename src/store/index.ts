@@ -1,11 +1,13 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import LoginReducerSlice from "./Reducer";
 import CardReducerSlice from "./Reducer/Card";
+import FavoriteReducer from "./Reducer/FavoriteSlice"
 
 
 const rootState = combineReducers({
     LoginReducerSlice,
-    CardReducerSlice
+    CardReducerSlice,
+    FavoriteReducer
 })
 
 export const setUpStore = () => {
