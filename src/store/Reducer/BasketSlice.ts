@@ -13,10 +13,12 @@ export type TBasket = {
 
 interface IBasketState {
     basket: TBasket[],
+    basketOne: Partial<TBasket>
 }
 
 const initialState: IBasketState = {
     basket: [],
+    basketOne: {}
 }
 
 export const BasketReducer = createSlice({
@@ -42,10 +44,13 @@ export const BasketReducer = createSlice({
                     }  else return el
                 } else return el
             })
+        },
+        basketOnes(state,action: PayloadAction<Partial<TBasket>>) {
+            state.basketOne = action.payload
         }
     }
 })
 
 
 export default BasketReducer.reducer
-export const {addToBasket, deletesBasket, decBasket} = BasketReducer.actions
+export const {addToBasket, deletesBasket, decBasket,basketOnes} = BasketReducer.actions
