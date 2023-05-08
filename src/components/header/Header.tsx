@@ -8,7 +8,6 @@ import {useAppSelector} from "../../Hooks/useAppSelector";
 const Header = () => {
     const {login} = useAppSelector(s => s.LoginReducerSlice)
     const {basket} = useAppSelector(s => s.BasketReducer)
-    const {favorite} = useAppSelector(state => state.FavoriteReducer)
     const navigate = useNavigate()
 
     const basLen = basket.reduce((acc, el) => {
@@ -39,9 +38,6 @@ const Header = () => {
                         <button onClick={() => navigate("/basket")}
                                 className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline">
                             <BsBasketFill/></button>
-                        <a href="#" className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline px-20"><BsBasketFill/></a>
-                        <Link to={'/favorite'} className=" text-2xl text-blue-600 dark:text-blue-500 hover:underline"><MdFavoriteBorder/> </Link>
-                        <h1 className="absolute right-24 -top-4">{basLen === 0 ? "" : basLen}</h1>
                     </div>
                 </div>
             </nav>
