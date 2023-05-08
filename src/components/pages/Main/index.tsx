@@ -6,6 +6,8 @@ import {MdOutlineFavoriteBorder} from "react-icons/md";
 import {addToFavorite} from "../../../store/Reducer/ActionCreators/FavoriteCreators";
 import {addToBasketsREC, basketDetail} from "../../../store/Reducer/ActionCreators/BasketCreators";
 import {useNavigate} from "react-router-dom";
+import {TBasket} from "../../../store/Reducer/BasketSlice";
+import "./main.scss"
 
 const Main = () => {
     const dispatch = useAppDispatch()
@@ -13,7 +15,10 @@ const Main = () => {
     const {basket} = useAppSelector(s => s.BasketReducer)
     const navigate = useNavigate()
     const found = (el: any) => basket.some(some => some.id === el.id)
-
+    const nav = (el: TBasket) => {
+        dispatch(basketDetail(el))
+        navigate(`/detail/${el.id}`)
+    }
 
     useEffect(() => {
         dispatch(setCard())
@@ -23,7 +28,6 @@ const Main = () => {
         <div className='container'>
             <div>
                 <div className='flex flex-wrap  justify-between pt-20'>
-
                     {
                         card.map(el => (
                             <div key={el.id}
@@ -68,14 +72,12 @@ const Main = () => {
             <div className='flex flex-wrap  items-start justify-between basis-3/3  pt-28'>
                 {
                     card.map(el => (
-                        <div key={el.id} className="bg-white border my-3 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div onClick={() => {
-                                dispatch(basketDetail(el))
-                                navigate(`/detail/${el.id}`)
-                            }} className='w-[250px]  h-[300px]'>
-                                <img className="p-8 rounded-t-lg w-[300px] " src={el.image} alt="product image"/>
+                        <div key={el.id} className="bg-white flex flex-col items-center justify-between w-[300px] h-auto  border my-3 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <div onClick={() => nav(el)} className="product-card">
+                                <img className="p-8 rounded-t-lg w-[250px]" src={el.image} alt="product image"/>
                             </div>
-                            <div className="px-5 pb-5">
+
+                            <div className={`px-5 product-card-bottom pb-5`}>
                                 <h5 className="text-xl font-semibold my-6 tracking-tight w-[200px] text-gray-900 dark:text-white">{el.title}</h5>
                                 <div className="flex items-center justify-between w-[200px]">
                                     <button  onClick={()=> dispatch(addToFavorite(el))} className="text-2xl"><MdOutlineFavoriteBorder
@@ -93,9 +95,9 @@ const Main = () => {
                                     }
                                 </div>
                             </div>
-
-                        ))
-                    }
+                        </div>
+                    ))
+                }
                 </div>
             </div>
 

@@ -32,6 +32,7 @@ const Header = () => {
                             <Link to={'/'}
                                   className="text-lg text-2xl text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
                         </div>
+                        <button onClick={() => navigate("/basket")} className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline px-20"><BsBasketFill/></button>
                         <Link to={'/favorite'}
                               className=" text-2xl text-blue-600 dark:text-blue-500 hover:underline px-14"><MdFavoriteBorder/>
                         </Link>
