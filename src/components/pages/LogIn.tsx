@@ -35,7 +35,7 @@ const LogIn = () => {
 
     return (
         <>
-            <div id="logIn" className="flex items-center" style={{
+            <div id="logIn" className="flex items-center relative z-30" style={{
                 background: `url("${images}") no-repeat center/cover`,
                 objectFit: "cover"
             }}>
