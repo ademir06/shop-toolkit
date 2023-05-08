@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import {useAppDispatch} from "../../../Hooks/useAppDispatch";
 import {useAppSelector} from "../../../Hooks/useAppSelector";
 import {setCard} from "../../../store/Reducer/ActionCreators";
+import {MdOutlineFavoriteBorder} from "react-icons/md";
+import {addToFavorite} from "../../../store/Reducer/ActionCreators/FavoriteCreators";
 import {addToBasketsREC, basketDetail} from "../../../store/Reducer/ActionCreators/BasketCreators";
 import {useNavigate} from "react-router-dom";
 
@@ -33,6 +35,11 @@ const Main = () => {
                                 <h5 className="text-xl font-semibold my-6 tracking-tight w-[200px] text-gray-900 dark:text-white">{el.title}</h5>
                                 <div className="flex items-center justify-between">
                                     <span className="text-3xl font-bold text-gray-900 dark:text-white">{el.price}</span>
+                                    <button  onClick={()=> dispatch(addToFavorite(el))} className="text-2xl pl-20"><MdOutlineFavoriteBorder
+                                        className='text-red-800'/></button>
+                                    <a href="#"
+                                       className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
+                                        to cart</a>
                                     {
                                         found(el) ?
                                             <button onClick={() => navigate("/basket")}
