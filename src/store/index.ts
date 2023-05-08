@@ -8,7 +8,7 @@ import BasketReducer from "./Reducer/BasketSlice";
 const rootState = combineReducers({
     LoginReducerSlice,
     CardReducerSlice,
-    FavoriteReducer
+    FavoriteReducer,
     BasketReducer,
 })
 
