@@ -27,12 +27,6 @@ const Header = () => {
                         </div>
                         <a href="#" className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline px-20"><BsBasketFill/></a>
                         <a href="#" className=" text-2xl text-blue-600 dark:text-blue-500 hover:underline"><MdFavoriteBorder/></a>
-                        <Link to={'/'}
-                              className="text-lg text-2xl text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
-                        <a href="#"
-                           className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline px-20"><BsBasketFill/></a>
-                        <a href="#"
-                           className=" text-2xl text-blue-600 dark:text-blue-500 hover:underline"><MdFavoriteBorder/></a>
                     </div>
                 </div>
             </nav>
