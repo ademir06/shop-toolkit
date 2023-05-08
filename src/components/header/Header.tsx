@@ -3,8 +3,11 @@ import logo from '../../img/856650d727f346095f9c3fe80ca5dc67.jpg'
 import {MdFavoriteBorder} from "react-icons/md";
 import {BsBasketFill} from "react-icons/bs";
 import {Link} from "react-router-dom";
+import {useAppSelector} from "../../Hooks/useAppSelector";
 
 const Header = () => {
+    const {login} = useAppSelector(s => s.LoginReducerSlice)
+
     return (
         <>
             <nav className="border-gray-200 dark:bg-gray-900 bg-black/80 text-white fixed w-full z-20">
@@ -19,12 +22,11 @@ const Header = () => {
                         </li>
                     </ul>
                     <div className="flex items-center">
-                        <Link to={'/'}
-                           className="text-lg text-2xl text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
-                        <a href="#"
-                           className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline px-20"><BsBasketFill/></a>
-                        <a href="#"
-                           className=" text-2xl text-blue-600 dark:text-blue-500 hover:underline"><MdFavoriteBorder/></a>
+                        <div hidden={login.status}>
+                            <Link to={'/'} className="text-lg text-2xl text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
+                        </div>
+                        <a href="#" className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline px-20"><BsBasketFill/></a>
+                        <a href="#" className=" text-2xl text-blue-600 dark:text-blue-500 hover:underline"><MdFavoriteBorder/></a>
                     </div>
                 </div>
             </nav>

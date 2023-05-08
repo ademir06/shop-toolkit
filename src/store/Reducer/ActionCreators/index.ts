@@ -27,3 +27,4 @@ export const formSliceCom = (message: any) => async (dispatch: appDispatch) => {
 export const fetchMode = (mode: any) => (dispatch: appDispatch) => {
     dispatch(getMode(mode))
 }
+
