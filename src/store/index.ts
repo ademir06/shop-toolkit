@@ -1,9 +1,11 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import LoginReducerSlice from "./Reducer";
+import CardReducerSlice from "./Reducer/Card";
 
 
 const rootState = combineReducers({
-    LoginReducerSlice
+    LoginReducerSlice,
+    CardReducerSlice
 })
 
 export const setUpStore = () => {
