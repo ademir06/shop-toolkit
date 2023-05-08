@@ -8,12 +8,12 @@ import {useAppSelector} from "../../Hooks/useAppSelector";
 const Header = () => {
     const {login} = useAppSelector(s => s.LoginReducerSlice)
     const {basket} = useAppSelector(s => s.BasketReducer)
+    const {favorite} = useAppSelector(state => state.FavoriteReducer)
     const navigate = useNavigate()
-    const basLen = basket.reduce((acc,el) => {
+
+    const basLen = basket.reduce((acc, el) => {
         return acc + el.quantity
     }, 0)
-
-
     return (
         <>
             <nav className="border-gray-200 dark:bg-gray-900 bg-black/80 text-white fixed w-full z-20">
@@ -29,8 +29,16 @@ const Header = () => {
                     </ul>
                     <div className="flex items-center relative">
                         <div hidden={login.status}>
-                            <Link to={'/'} className="text-lg text-2xl text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
+                            <Link to={'/'}
+                                  className="text-lg text-2xl text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
                         </div>
+                        <Link to={'/favorite'}
+                              className=" text-2xl text-blue-600 dark:text-blue-500 hover:underline px-14"><MdFavoriteBorder/>
+                        </Link>
+                        <h1 className="absolute -right-1 -top-3">{basLen === 0 ? "" : basLen}</h1>
+                        <button onClick={() => navigate("/basket")}
+                                className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline">
+                            <BsBasketFill/></button>
                         <a href="#" className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline px-20"><BsBasketFill/></a>
                         <Link to={'/favorite'} className=" text-2xl text-blue-600 dark:text-blue-500 hover:underline"><MdFavoriteBorder/> </Link>
                         <h1 className="absolute right-24 -top-4">{basLen === 0 ? "" : basLen}</h1>
