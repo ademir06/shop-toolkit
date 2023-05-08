@@ -2,7 +2,7 @@ import {ILogin} from "../../types";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 interface ILogInReducer {
-    login: ILogin[]
+    login: Partial<any>
     loading: boolean
     error: string
     value: Partial<any>
@@ -10,7 +10,7 @@ interface ILogInReducer {
 }
 
 const initialState: ILogInReducer = {
-    login: [],
+    login: {},
     loading: false,
     error: '',
     value: {
@@ -27,7 +27,7 @@ export const LoginReducerSlice = createSlice({
         getLogin(state) {
             state.loading = true
         },
-        getLoginSuccess(state, action: PayloadAction<ILogin[]>) {
+        getLoginSuccess(state, action: PayloadAction<Partial<any>>) {
             state.loading = false;
             state.login = action.payload
             state.error = ''

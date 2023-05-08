@@ -46,7 +46,7 @@ const LogIn = () => {
                                 <div className="flex flex-col items-center">
                                     <input style={{border: mode ? value.email.trim().length !== 0 ? "2px solid green" : "2px solid red" : ""}} value={value.email} onChange={handleChange} name={"email"} type="email" placeholder="email" className=""/>
                                     <input style={{border: mode ? value.password.trim().length !== 0 ? "2px solid green" : "2px solid red" : ""}} value={value.password} onChange={handleChange} name={"password"} type="password" placeholder="password" className=""/>
-                                    <button onClick={formChange} className="logIn--nav__button">Continue</button>
+                                    <button  className="logIn--nav__button">Continue</button>
                                 </div>
                             </form>
                             <button className="logIn--nav__child"><FcGoogle className="text-3xl mx-2"/>Continue with Google</button>
