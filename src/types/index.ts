@@ -9,3 +9,12 @@ export interface ILogin {
     image: string
     category: string
 }
+
+export interface ICard {
+    id: number
+    title: string
+    price: number
+    description:string
+    image:string
+    category:string
+}

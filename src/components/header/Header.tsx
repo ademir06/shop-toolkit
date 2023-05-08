@@ -14,13 +14,13 @@ const Header = () => {
                     </a>
                     <ul className="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
                         <li>
-                            <a href="#" className="dark:text-white hover:underline"
-                               aria-current="page">Home</a>
+                            <Link to={'/main'} className="dark:text-white hover:underline"
+                                  aria-current="page">Home</Link>
                         </li>
                     </ul>
                     <div className="flex items-center">
                         <Link to={'/'}
-                           className="text-lg text-2xl text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
+                              className="text-lg text-2xl text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
                         <a href="#"
                            className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline px-20"><BsBasketFill/></a>
                         <a href="#"
