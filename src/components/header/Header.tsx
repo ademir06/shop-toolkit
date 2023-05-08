@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../img/856650d727f346095f9c3fe80ca5dc67.jpg'
 import {MdFavoriteBorder} from "react-icons/md";
 import {BsBasketFill} from "react-icons/bs";
+import {Link} from "react-router-dom";
 
 const Header = () => {
     return (
@@ -18,8 +19,8 @@ const Header = () => {
                         </li>
                     </ul>
                     <div className="flex items-center">
-                        <a href="#"
-                           className="text-lg text-2xl text-blue-600 dark:text-blue-500 hover:underline">Login</a>
+                        <Link to={'/'}
+                           className="text-lg text-2xl text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
                         <a href="#"
                            className="text-lg  text-2xl text-blue-600 dark:text-blue-500 hover:underline px-20"><BsBasketFill/></a>
                         <a href="#"
