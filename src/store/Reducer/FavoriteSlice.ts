@@ -7,8 +7,10 @@ interface IFavoriteSlice {
     error: string
 }
 
+const fav: any = localStorage.getItem("favorite")
+
 const initialState: IFavoriteSlice = {
-    favorite: [],
+    favorite: JSON.parse(fav) || [],
     loading: false,
     error: ''
 }

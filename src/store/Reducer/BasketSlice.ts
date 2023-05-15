@@ -16,9 +16,12 @@ interface IBasketState {
     basketOne: Partial<TBasket>
 }
 
+const baskets: any  = localStorage.getItem("basket")
+const basketsOne: any  = localStorage.getItem("basketOne")
+
 const initialState: IBasketState = {
-    basket: [],
-    basketOne: {}
+    basket: JSON.parse(baskets) || [],
+    basketOne: JSON.parse(basketsOne) || {}
 }
 
 export const BasketReducer = createSlice({

